@@ -1,0 +1,46 @@
+<div class="select-container input-group">
+  <div class="input-group-prepend">
+    <label class="input-group-text filter-label" for="inputGroupSelect01">Filter by:</label>
+  </div>
+  <select class="custom-select filter-select" [(ngModel)]="selectedValue">
+    <option *ngFor="let option of filterOptions" [value]="option.value">{{option.name}}</option>
+  </select>
+</div>
+
+<div class="search-container input-group">
+  <div class="by-name" *ngIf="isFilteredByName()">
+    <input type="text" class="form-control" [(ngModel)]="filterName" placeholder="Enter the keyword to filter" />
+    <button type="button" class="input-group-btn btn" (click)="searchByNameFilter($event)">
+      <span class="oi oi-magnifying-glass"></span>
+    </button>
+  </div>
+
+  <div *ngIf="isFilteredByLanguage()">
+    <select class="custom-select filter-select" [(ngModel)]="selectedLanguage">
+      <option *ngFor="let option of languages" [value]="option.value">{{option.name}}</option>
+    </select>
+    <!-- <input type="text" class="form-control" [(ngModel)]="filterName" placeholder="Enter the language to filter" /> -->
+    <button type="button" class="input-group-btn btn" (click)="searchByLanguageFilter($event)">
+      <span class="oi oi-magnifying-glass"></span>
+    </button>
+  </div>
+
+  <div *ngIf="isFilteredByGenre()">
+    <select class="custom-select filter-select" [(ngModel)]="selectedGenre">
+      <option *ngFor="let option of genres" [value]="option.value">{{option.name}}</option>
+    </select>
+    <button type="button" class="input-group-btn btn" (click)="searchByGenreFilter($event)">
+      <span class="oi oi-magnifying-glass"></span>
+    </button>
+  </div>
+
+  <div *ngIf="isFilteredBySchedule()">
+    <select class="custom-select filter-select" [(ngModel)]="selectedCountry">
+      <option *ngFor="let option of countries" [value]="option.value">{{option.name}}</option>
+    </select>
+    <input type="text" class="form-control" [(ngModel)]="filterDate" placeholder="Enter the date to filter" />
+    <button type="button" class="input-group-btn btn" (click)="searchByScheduleFilter($event)">
+      <span class="oi oi-magnifying-glass"></span>
+    </button>
+  </div>
+</div>

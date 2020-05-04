@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-dark" *ngIf="userDetails">
+  <a class="navbar-brand text-white" *ngIf="!userDetails.admin">Welcome</a>
+  <a class="navbar-brand text-white" *ngIf="userDetails.admin">Welcome Admin!</a>
+  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+</nav>
+
+
+<div class="card m-5" style="width: 20rem;" *ngIf="userDetails">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-dark"><strong>User Name: </strong>{{userDetails.userName}}</li>
+    <li class="list-group-item list-group-item-dark"><strong>Full Name: </strong>{{userDetails.fullName}}</li>
+    <li class="list-group-item list-group-item-dark"><strong>Email: </strong>{{userDetails.email}}</li>
+    <li class="list-group-item list-group-item-dark" *ngIf="userDetails.admin"><strong>Admin privileges: </strong>{{userDetails.admin}}</li>
+    <li class="list-group-item list-group-item-dark" *ngIf="userDetails.admin">
+      <button class="btn btn-secondary">Admin Users</button>
+    </li>
+  </ul>
+</div>
+
+<div class="box box1">
+  <img class="home-img" src="https://www.realpage.com/dist/site/static/logos/rp-logo-2020.svg" alt="OrbitGroup">
+  <h1 class="header-home">TEST</h1>
+</div>

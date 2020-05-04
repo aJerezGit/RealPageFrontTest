@@ -1,0 +1,59 @@
+@import '../../styles-variables';
+@import '~bootstrap/scss/mixins';
+
+:host {
+  .select-container {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+    width: 45%;
+    margin: 20px auto;
+  }
+
+  .search-container {
+    margin-top: 15px;
+
+    & > div {
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .by-name {
+      input,
+      button {
+        background-color: rgb(45, 97, 92);
+        color: #3C948B;
+        border-color: rgb(64, 112, 107);
+        border-radius: 0;
+      }
+      input {
+        @include media-breakpoint-down(xs) {
+          width: 100%;
+        }
+        width: 45%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      button {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+
+  .filter-label,
+  .filter-select {
+    background-color: #3C948B;
+    color: white;
+    border-color: rgb(64, 112, 107);
+  }
+
+  .filter-label {
+    border-top-left-radius: 5px;
+  }
+
+  .filter-select {
+    border-top-right-radius: 5px;
+  }
+}

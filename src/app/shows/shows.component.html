@@ -1,0 +1,23 @@
+<section>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand text-white">Welcome</a>
+    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+  </nav>
+
+  <app-filter (dataFiltered)="updateCharacters($event)"></app-filter>
+
+  <div class="container justify-content-center center-block" style="position:relative; left:40%;">
+    <button class="btn btn-info" (click)="goBack()"><<</button>
+    <button class="btn btn-info" (click)="goForward()">>></button>
+  </div>
+
+  <div class="list-wrapper row justify-content-center" *ngIf="shows">
+    <div class="character-block col-md-3 col-sm-6 text-center" *ngFor="let show of shows">
+        <a routerLink="/show/{{show.id}}">
+        <img *ngIf="show.image?.medium" src="{{show.image.medium}}" />
+        <p class="showName">{{show.name}}</p> 
+        <img *ngIf="!show.image?.medium" src="../../assets/default.jpg" />
+      </a>
+    </div>    
+  </div>
+</section>

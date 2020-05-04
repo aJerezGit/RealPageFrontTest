@@ -1,0 +1,50 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand text-white">Welcome</a>
+  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+</nav>
+<div *ngIf="show" class="showDetail">
+  <h3 class="showTitle">{{show.name}}</h3>
+  <img src="{{show.image.medium}}" alt="show">
+  <div class="summary">
+    <h3>Description:</h3>
+    <p [innerHtml]="show.summary"></p>
+  </div>
+  <h3 class="showTitle">Cast</h3>
+
+  <div class="cast" *ngFor="let person of cast">
+    <div class="item character">
+      <img *ngIf="person.character.image?.medium" src="{{person.character.image?.medium || '../common/default.jpg'}}" alt="character">
+      <img *ngIf="!person.character.image?.medium" src="../../assets/default.jpg" alt="character">
+    </div> 
+    <div class="item castDefinition">
+      <h4>Character:</h4>{{person.character.name}}
+      <br/>
+      <h4>Person:</h4>{{person.person.name}}     
+    </div>
+    <div class="item person">
+      <img *ngIf="person.person.image?.medium" src="{{person.person.image.medium}}" alt="character">
+      <img *ngIf="!person.person.image?.medium" src="../../assets/default.jpg" alt="character">
+    </div>
+
+  </div>
+  <section>
+    <div class="container">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Season</th>
+          <th scope="col">Episode Number</th>
+          <th scope="col">Episode Name</th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let episode of episodes">
+        <th scope="row">{{episode.season}}</th>
+        <th scope="row">{{episode.number}}</th>
+        <th scope="row">{{episode.name}}</th>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+</section>
+</div>
